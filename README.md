@@ -30,3 +30,19 @@ To learn more about Next.js, take a look at the following resources:
 
 - [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
 - [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+
+
+some iamges: 
+![image](https://user-images.githubusercontent.com/45131527/218203443-1fdb7121-3e51-45fc-8349-5f609f63a8e9.png)
+
+
+main screen/dashboard: 
+
+add a patient: 
+![image](https://user-images.githubusercontent.com/45131527/218203358-38400a47-37cb-4d34-904f-7bbf8a562a8a.png)
+
+edit modal : 
+![image](https://user-images.githubusercontent.com/45131527/218203578-01b2de8d-8fca-4ec0-9f27-3d1e75696b01.png)
+enable to remove by click on remove button
+
+

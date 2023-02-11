@@ -33,10 +33,13 @@ To learn more about Next.js, take a look at the following resources:
 
 
 some iamges: 
-![image](https://user-images.githubusercontent.com/45131527/218203443-1fdb7121-3e51-45fc-8349-5f609f63a8e9.png)
+
+![image](https://user-images.githubusercontent.com/45131527/218275103-0906fcf3-e298-460a-87ef-d9398cf461ae.png)
 
 
 main screen/dashboard: 
+![image](https://user-images.githubusercontent.com/45131527/218275084-e9fc2762-cf87-4ee3-bd20-e7f12d69fb94.png)
+
 
 add a patient: 
 ![image](https://user-images.githubusercontent.com/45131527/218203358-38400a47-37cb-4d34-904f-7bbf8a562a8a.png)

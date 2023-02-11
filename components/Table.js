@@ -1,7 +1,6 @@
 import React, { useState, Fragment } from "react";
 import { useTable, useFilters, useSortBy } from "react-table";
-import { ColumnFilter } from "./ColumnFilter";
-import { FaHeart } from "react-icons/fa";
+import { getAgeFromDate } from "../utils/getAgeFromDate";
 import {
   IoArrowDownOutline,
   IoArrowUpOutline,
@@ -99,7 +98,12 @@ export default function Table({ columns, data }) {
                               className="px-6 py-4 whitespace-nowrap"
                               key={i}
                             >
-                              {cell.render("Cell")}
+                              {/* {cell.render("Cell")} */}
+                              {cell.column.Header == "Pet Age"
+                                ? getAgeFromDate(cell.value)
+                                : cell.render("Cell")}
+
+                              {/* {i++} */}
                             </td>
                           );
                         })}

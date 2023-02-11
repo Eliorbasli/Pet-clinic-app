@@ -67,7 +67,7 @@ const Modal = ({ isVisible, onClose, editPatient }) => {
         petDOB: petDOB,
         petType: petType,
       };
-
+      console.log(newPatient);
       const result = await axios
         .post("/api/patients", newPatient)
         .then(console.log("Sent api request.."));
@@ -78,6 +78,7 @@ const Modal = ({ isVisible, onClose, editPatient }) => {
       }
     } catch (error) {
       console.log("Error in handleNewPatient fucntion..");
+      console.log(error);
     }
   }
 

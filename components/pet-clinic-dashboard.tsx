@@ -15,7 +15,11 @@ export const PetClinicDashboard = () => {
       >
         Add new patient
       </button>
-      <Modal isVisible={showModal} onClose={() => setShowModal(false)} />
+      <Modal
+        isVisible={showModal}
+        onClose={() => setShowModal(false)}
+        editPatient={null}
+      />
     </div>
   );
 };

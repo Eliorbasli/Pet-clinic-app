@@ -7,7 +7,7 @@ interface PatientResult {
   pateints?: Array<IPatient> | IPatient;
 }
 
-function containsNumber(str) {
+function containsNumber(str: any) {
   return /[0-9]/.test(str);
 }
 

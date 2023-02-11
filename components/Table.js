@@ -11,7 +11,7 @@ import Modal from "./Modal";
 
 export default function Table({ columns, data }) {
   const [showModal, setShowModal] = useState(false);
-  // Use the useTable Hook to send the columns and data to build the table
+  const i = 0;
   const {
     getTableProps,
     getTableBodyProps,
@@ -51,12 +51,13 @@ export default function Table({ columns, data }) {
               >
                 <thead className="bg-gray-500">
                   {headerGroups.map((headerGroup) => (
-                    <tr {...headerGroup.getHeaderGroupProps()}>
+                    <tr {...headerGroup.getHeaderGroupProps()} key={i}>
                       {headerGroup.headers.map((column) => (
                         <th
                           {...column.getHeaderProps(
                             column.getSortByToggleProps()
                           )}
+                          key={i}
                           className="px-6 bg-gray500 py-3 text-center text-xs  font-medium text-gray-500 uppercase tracking-wider"
                         >
                           {column.render("Header")}
@@ -90,12 +91,13 @@ export default function Table({ columns, data }) {
                   {rows.map((row, i) => {
                     prepareRow(row);
                     return (
-                      <tr {...row.getRowProps()}>
+                      <tr {...row.getRowProps()} key={i}>
                         {row.cells.map((cell) => {
                           return (
                             <td
                               {...cell.getCellProps()}
                               className="px-6 py-4 whitespace-nowrap"
+                              key={i}
                             >
                               {cell.render("Cell")}
                             </td>

@@ -1,4 +1,5 @@
-import { PetClinicDashboard } from "@/components/Pet-clinic-dashboard";
+// import { PetClinicDashboard } from "../components/Pet-clinic-dashboard";
+import { PetClinicDashboard } from "../components/pet-clinic-dashboard";
 
 import type { NextPage } from "next";
 

@@ -85,13 +85,14 @@ const Modal = ({ isVisible, onClose, editPatient }) => {
         window.location.reload(false);
         handleClose();
       } else {
+        console.log(result);
         setErrorMessage(error.response.data);
-        console.log(result.json);
       }
     } catch (error) {
       console.log("Error in handleNewPatient fucntion..");
 
-      if (error.response.status == 401) {
+      if (error.response.status == 400) {
+        console.log(error.response.data);
         setErrorMessage(error.response.data);
       }
     }

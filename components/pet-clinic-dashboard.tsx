@@ -7,10 +7,10 @@ export const PetClinicDashboard = () => {
   return (
     <div className="grid grid-rows-auto-1fr gap-y-4 p-4 md:p-8 max-w-screen-lg mx-auto">
       <Title />
-      {/* <Table /> */}
+
       <TableDashboard />
       <button
-        className="text-white bg-blue700 focus:outline-none font-medium text-sm rounded-lg px-5 py-2.5 text-center"
+        className="text-white bg-blue700  focus:outline-none focus:ring-4 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:hover:bg-gray400"
         onClick={() => setShowModal(true)}
       >
         Add new patient

@@ -57,7 +57,7 @@ export default function Table({ columns, data }) {
                             column.getSortByToggleProps()
                           )}
                           key={i}
-                          className="px-6 bg-gray500 py-3 text-center text-xs  font-medium text-gray-500 uppercase tracking-wider"
+                          className="px-6 bg-gray500 py-3 text-center align-top text-xs font-medium uppercase tracking-wider truncate"
                         >
                           {column.render("Header")}
                           <span>
@@ -98,7 +98,6 @@ export default function Table({ columns, data }) {
                               className="px-6 py-4 whitespace-nowrap"
                               key={i}
                             >
-                              {/* {cell.render("Cell")} */}
                               {cell.column.Header == "Pet Age"
                                 ? getAgeFromDate(cell.value)
                                 : cell.render("Cell")}

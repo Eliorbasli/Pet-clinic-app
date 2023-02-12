@@ -2,6 +2,7 @@ import { IPatient } from "@/lib/interfaces";
 import type { NextApiRequest, NextApiResponse } from "next";
 import { connectMongo } from "../../utils/connectDB";
 import Patient from "../../models/PatientModal";
+import { validationPatient } from "../../utils/validationPatient";
 
 interface PatientResult {
   pateints?: Array<IPatient> | IPatient;
@@ -35,21 +36,27 @@ const create = async (req: NextApiRequest, res: NextApiResponse) => {
     if (req.body === null) {
       return res.status(400).json("req body is null..");
     }
+
     const ownerName = String(req.body.ownerName);
     const phoneNumber = String(req.body.phoneNumber);
     const petName = req.body.petName;
     const petDOB = req.body.petDOB;
     const petType = req.body.petType;
 
+    const today = new Date();
+    const dateDOB = new Date(petDOB);
+
     if (ownerName == "" || phoneNumber == "" || petName == "" || petDOB == "") {
       console.log("Please fill in all fields");
-      return res.status(400).json("Please fill in all fields");
+      return res.status(400).json("Please fill all fields");
     }
     if (containsNumber(ownerName) || containsNumber(petName)) {
-      console.log("name contain number.. please check ");
-      return res.status(400).json("Please fill in all fields");
+      console.log("Name contain number.. please check it ");
+      return res.status(400).json("Name contain number.. please check it  ");
     }
-
+    if (dateDOB > today) {
+      return res.status(400).json("Please check the birthday");
+    }
     if (petType != "Cat" && petType != "Dog" && petType != "Parrot") {
       return res.status(400).json("Please select Dog/Cat/Parrot");
     } else {
@@ -89,12 +96,41 @@ const del = async (req: NextApiRequest, res: NextApiResponse) => {
 
 const put = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
-    const result = await Patient.findOneAndUpdate(
-      { _id: req.body.patientId },
-      req.body
-    );
-    console.log(result);
-    res.status(200).json(result);
+    if (req.body === null) {
+      return res.status(400).json("req body is null..");
+    }
+
+    const ownerName = String(req.body.ownerName);
+    const phoneNumber = String(req.body.phoneNumber);
+    const petName = req.body.petName;
+    const petDOB = req.body.petDOB;
+    const petType = req.body.petType;
+
+    const today = new Date();
+    const dateDOB = new Date(petDOB);
+
+    if (ownerName == "" || phoneNumber == "" || petName == "" || petDOB == "") {
+      console.log("Please fill in all fields");
+      return res.status(400).json("Please fill all fields");
+    }
+    if (containsNumber(ownerName) || containsNumber(petName)) {
+      console.log("Name contain number.. please check it ");
+      return res.status(400).json("Name contain number.. please check it  ");
+    }
+    if (dateDOB > today) {
+      return res.status(400).json("Please check the birthday");
+    }
+    if (petType != "Cat" && petType != "Dog" && petType != "Parrot") {
+      return res.status(400).json("Please select Dog/Cat/Parrot");
+    } else {
+      console.log("patient created ");
+
+      const result = await Patient.findOneAndUpdate(
+        { _id: req.body.patientId },
+        req.body
+      );
+      return res.status(200).json({ result });
+    }
   } catch (error) {
     res.status(501).json(error);
   }

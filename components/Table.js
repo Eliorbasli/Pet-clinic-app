@@ -79,7 +79,9 @@ export default function Table({ columns, data }) {
                           </div>
                         </th>
                       ))}
-                      <th className="bg-gray500">Edit</th>
+                      <th className="bg-gray500 py-3 text-center align-top text-xs font-medium uppercase tracking-wider truncate">
+                        Edit
+                      </th>
                     </tr>
                   ))}
                 </thead>
